@@ -16,8 +16,8 @@ CREATE TABLE "entries" (
 
 CREATE TABLE "transfers" (
   "id" bigserial PRIMARY KEY,
-  "from_acount_id" bigint,
-  "to_acount_id" bigint,
+  "from_acount_id" bigint NOT NULL,
+  "to_acount_id" bigint NOT NULL,
   "amount" bigint NOT NULL,
   "created_at" timestamptz NOT NULL DEFAULT (now())
 );
