@@ -7,3 +7,5 @@
 - **Install TablePlus:** [TablePlus](https://tableplus.com/blog/2019/10/tableplus-linux-installation.html)
 - Create a directory for db migration `db/migration`
 - Create initial migration schema `migrate create -ext sql -dir db/migration -seq init_schema`
+- Init sqlc and generate config [link](https://docs.sqlc.dev/en/stable/reference/config.html#version-1)
+- Write sql query [link](https://docs.sqlc.dev/en/stable/tutorials/getting-started-postgresql.html)
