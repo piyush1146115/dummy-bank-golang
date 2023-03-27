@@ -27,9 +27,9 @@ type Entry struct {
 }
 
 type Transfer struct {
-	ID           int64 `json:"id"`
-	FromAcountID int64 `json:"fromAcountID"`
-	ToAcountID   int64 `json:"toAcountID"`
+	ID            int64 `json:"id"`
+	FromAccountID int64 `json:"fromAccountID"`
+	ToAccountID   int64 `json:"toAccountID"`
 	// must be positive
 	Amount    int64     `json:"amount"`
 	CreatedAt time.Time `json:"createdAt"`
