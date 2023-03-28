@@ -3,14 +3,13 @@ package util
 import (
 	"math/rand"
 	"strings"
-	"time"
 )
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
+//func init() {
+//	rand.Seed(time.Now().UnixNano())
+//}
 
 // RandomInt generates a random integer between min and max
 func RandomInt(min, max int64) int64 {
