@@ -1,6 +1,9 @@
 postgres:
 	docker run --name bank-postgres -p 5432:5432 -e POSTGRES_USER=root  -e POSTGRES_PASSWORD=mysecret -d postgres
 
+remove-postgres:
+	docker stop bank-postgres && docker rm bank-postgres
+
 createdb:
 	docker exec -it bank-postgres createdb --username=root --owner=root simple_bank
 
@@ -19,4 +22,4 @@ sqlc:
 unit-tests:
 	go test -v -cover ./...
 
-.PHONY: postgres createdb dropdb migrateup migratedown unit-tests sqlc
+.PHONY: postgres createdb dropdb migrateup migratedown unit-tests sqlc remove-postgres
