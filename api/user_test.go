@@ -12,7 +12,7 @@ import (
 	db "github.com/piyush1146115/dummy-bank-golang/db/sqlc"
 	"github.com/piyush1146115/dummy-bank-golang/db/util"
 	"github.com/stretchr/testify/require"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
@@ -30,12 +30,13 @@ func (e eqCreateUserParamsMatcher) Matches(x interface{}) bool {
 		return false
 	}
 
-	err := util.CheckPassword(e.password, arg.HashedPassword)
+	err := util.CheckPassword(arg.HashedPassword, e.password)
 	if err != nil {
 		return false
 	}
 
 	e.arg.HashedPassword = arg.HashedPassword
+
 	return reflect.DeepEqual(e.arg, arg)
 }
 
@@ -113,7 +114,7 @@ func TestCreateUserAPI(t *testing.T) {
 					Return(db.User{}, &pq.Error{Code: "23505"})
 			},
 			checkResponse: func(recorder *httptest.ResponseRecorder) {
-				require.Equal(t, http.StatusForbidden, recorder.Code)
+				require.Equal(t, http.StatusUnprocessableEntity, recorder.Code)
 			},
 		},
 		{
@@ -211,7 +212,7 @@ func randomUser(t *testing.T) (user db.User, password string) {
 }
 
 func requireBodyMatchUser(t *testing.T, body *bytes.Buffer, user db.User) {
-	data, err := ioutil.ReadAll(body)
+	data, err := io.ReadAll(body)
 	require.NoError(t, err)
 
 	var gotUser db.User
