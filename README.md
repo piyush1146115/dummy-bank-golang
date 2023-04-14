@@ -10,6 +10,8 @@
 - Write sql query: [sqlc link](https://docs.sqlc.dev/en/stable/tutorials/getting-started-postgresql.html)
 - Generate mock DB: [Golang mock](https://github.com/golang/mock)
 - Validate Json structs: [Go playground validator](https://github.com/go-playground/validator)
+- Generate UUID: [Google's UUID](https://github.com/google/uuid)
+- Make JWT token: [Golang JWT](https://github.com/golang-jwt/jwt)
 
 ## Acknowledgement
 - [Backend Masterclass playlist on youtube](https://www.youtube.com/playlist?list=PLy_6D98if3ULEtXtNSY_2qN21VCKgoQAE)
