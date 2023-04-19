@@ -1,5 +1,8 @@
 # dummy-bank-golang
+This is a simple simulation of a bank API service that can store user information and perform transaction.
 
+## DB Schema
+![DB Schema](./db_schema/Simple_Bank.png)
 
 ## References
 - DB Schema: [Db diagram](https://dbdiagram.io/home)
